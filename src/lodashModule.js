@@ -51,7 +51,7 @@ async function uniqTextFileCounterWords(filename) {
         const textData = await returnFile(filename);
         const splittedWords = _.words(textData)
         const uniqArray = _.uniq(splittedWords)
-        console.log('uniq words numbers: ', uniqArray.length);
+        console.log('uniq words number: ', uniqArray.length);
     } catch (error) {
         console.error(error);
     }
@@ -63,8 +63,8 @@ async function uniqTextFileWordsToUppercase(filename) {
         const textData = await returnFile(filename);
         const upperTextData = _.toUpper(textData)
         const splittedWords = _.words(upperTextData)
-        const uniqArray = _.uniq(splittedWords).join(', ')
-        fs.appendFile('answer.txt', uniqArray + '\n\n', (err) => {
+        const uniqWordsUpper = _.uniq(splittedWords).join(', ')
+        fs.appendFile('answer.txt', uniqWordsUpper + '\n\n', (err) => {
             if (err) throw err;
             console.log('The file has been saved!');
         })
